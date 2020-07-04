@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+
+</head>
+
+<body>
+	<p>Amon</p>
+	<p contenteditable="true">Belgie</p>
+	<p contenteditable="true">Skret</p>
+	<p contenteditable="true">John</p>
+	<p>Jamy</p>
+	<p>Bobby</p>
+	<p>C-gey</p>
+	<p>Jack</p>
+	<p>Joseph</p>
+	<p>Pam</p>
+	<button>Sort by alphabetic order</button>
+	<div class="button">Click to random</div>
+</body>
+<script>
+
+	let button = document.querySelector('button');
+	button.addEventListener('click', sort);
+	function sort() {
+		let ps = document.getElementsByTagName('p');
+		let values = [];
+		for (let p of ps) {
+			values.push(p.innerText);
+
+
+		}
+		values.sort();
+		for (let i = 0; i < ps.length; i++) {
+			ps[i].innerText = values[i];
+		}
+	}
+	let secondButton = document.querySelector('.button');
+	// secondButton.addEventListener('click', random);
+
+	function random() {
+
+		let ps = document.getElementsByTagName('p');
+		let newContentArray = [];
+		let stackNumbers = [];
+		while (stackNumbers.length < 11) {
+			let random = Math.floor(Math.random() * 9) + 1;
+			if (!stackNumbers.includes(random)) stackNumbers.push(random);
+		}
+		console.log(stackNumbers);
+
+
+
+
+
+
+	}
+</script>
+
+</html>
