@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Objects in javascript</title>
+</head>
+
+<body>
+	<script>
+		//clear the console:
+		console.clear('That was easy to clear.');
+		//for object creationg we employ two syntaxes:
+		let user = new Object();
+		let user1 = {};
+		//literals and properties:
+		let user2 = {
+			name: 'John',
+			age: 30
+		}
+		//now this object has two properties: name, age, with its values
+		//how to reference them:
+		console.log(user2.name);//John
+		console.log(user2.age);//30
+		//to add a property:
+		user2.isAdmin = true;
+		//to add complicated names:
+		user2['backflip is capable of'] = true;
+		//to delete a property:
+		delete user2.age;
+		console.log(user2);
+		//a simple communication:
+		function app1() {
+			let user3 = {
+				name: "Bob",
+				age: 55,
+				solvency: true
+			};
+			let answer = prompt('What do you want to know about a user?', 'Bob');
+			if (answer === user3.name) {
+				console.log(user3);
+			}
+
+		}
+
+		//definable properties:
+		function app2() {
+			let fruit = prompt('Which fruit would you like to taste now?');
+			let bag = new Object();
+			bag[fruit] = 5;
+			console.info(bag);
+
+			//or we can use even more complicated expressions:
+			let fruit2 = prompt("Which fruit would you like to taste now?");
+			let bag2 = {
+				[fruit2 + ' fruit and not vegetable']: 5
+			}
+			console.log(bag2);
+
+		}
+
+
+		function testShedule(obj) {
+			if (Object.keys(obj).length == 0) return true;
+			else return false;
+		}
+		console.log(testShedule({}));
+		//write the sum function:
+		let salaries = {
+			John: 100,
+			Ann: 160,
+			Pete: 130
+		}
+		function sum(object) {
+			let sum = 0;
+			for (let key in object) {
+				sum += object[key];
+			}
+			return sum;
+		}
+		console.log(sum(salaries));
+		//multiply all number properties by two:
+		function multiply(object) {
+
+
+			for (let key in object) {
+				if (typeof object[key] == 'number') {
+					object[key] = object[key] * 2;
+				}
+			}
+			console.log(object);
+		}
+		const multiply2 = object => { for (let key in object) typeof object[key] == 'number' ? object[key] *= 2 : object[key] };
+
+		let menu = {
+			width: 200,
+			height: 300,
+			title: "My menu"
+		};
+		console.log("multiply2: " + multiply2(menu));
+		multiply(menu);
+	</script>
+</body>
+
+</html>
